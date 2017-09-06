@@ -1,0 +1,28 @@
+body {
+  /*width: 80%;*/
+}
+
+.span-1, 
+.span-2, 
+.span-3 {
+  margin-bottom: 10px;
+  float: left;
+  min-height: 100px;
+  width: 100%;
+}
+
+.span-1 {
+  background-color: mistyrose;
+}
+
+.span-2 {
+  background-color: linen;
+}
+
+.span-3 {
+  background-color: plum;
+}
+
+img {
+  max-width: 100%;
+}
