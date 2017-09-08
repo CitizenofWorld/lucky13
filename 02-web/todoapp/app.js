@@ -5,23 +5,26 @@
 
 var listItems = document.querySelectorAll('li');
 
+var toggleComplete = function(event) {
+  event.target.classList.toggle('completed');
+}
+
 listItems.forEach(function(elem){
-  elem.addEventListener('click', function(){
-    elem.classList.add('completed');
-  });
+  elem.addEventListener('click', toggleComplete);
 });
+
+// toggleComplete(event) // happening somewhere behind the scenes
 
 var addBtn = document.querySelector('.add-btn');
 var newItemInput = document.querySelector('.new-item');
 var todoList = document.querySelector('ul');
 
-addBtn.addEventListener('click', function(){
+addBtn.addEventListener('click', function(event){
+
   var newItemValue = newItemInput.value;
   var newListItem = document.createElement('li');
   newListItem.textContent = newItemValue;
-  newListItem.addEventListener('click', function() {
-    newListItem.classList.add('completed');
-  });
+  newListItem.addEventListener('click', toggleComplete);
 
   todoList.appendChild( newListItem );
 });
