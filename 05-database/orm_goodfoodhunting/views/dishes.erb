@@ -3,16 +3,16 @@
 <% @dishes.each do |dish| %>
   <article class="dish">
     <h2>
-      <a href="/dishes/<%= dish['id'] %>">
-        <%= dish['name'] %>
+      <a href="/dishes/<%= dish.id %>">
+        <%= dish.name %>
       </a>
     </h2>
-    <a href="/dishes/<%= dish['id'] %>/edit">edit</a>
-    <form action="/dishes/<%= dish['id'] %>" method="post">
+    <a href="/dishes/<%= dish.id %>/edit">edit</a>
+    <form action="/dishes/<%= dish.id %>" method="post">
       <input type="hidden" name="_method" value="delete">
       <button type="submit">Delete</button>
     </form>
     <a href="#"></a>
-    <img src="<%= dish['image_url'] %>" alt="">
+    <img src="<%= dish.image_url %>" alt="">
   </article>
 <% end %>
