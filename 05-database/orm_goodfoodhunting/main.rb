@@ -40,7 +40,7 @@ get '/dishes/:id/edit' do
 end
 
 put '/dishes/:id' do
-  @dish = Dish.find(params[:id])
+  dish = Dish.find(params[:id])
   dish.name = params[:name]
   dish.image_url = params[:image_url]  
   dish.save
