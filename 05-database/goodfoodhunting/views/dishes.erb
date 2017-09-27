@@ -1,12 +1,18 @@
 <h1>all dishes</h1>
-
+<a href="/dishes/new">New Dish</a>
 <% @dishes.each do |dish| %>
-  <img src="<%= dish['image_url'] %>" alt="">
-  <h2>
-    <a href="/dishes/<%= dish['id'] %>">
-      <%= dish['name'] %>
-    </a>
-  </h2>
+  <article class="dish">
+    <h2>
+      <a href="/dishes/<%= dish['id'] %>">
+        <%= dish['name'] %>
+      </a>
+    </h2>
+    <a href="/dishes/<%= dish['id'] %>/edit">edit</a>
+    <form action="/dishes/<%= dish['id'] %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit">Delete</button>
+    </form>
+    <a href="#"></a>
+    <img src="<%= dish['image_url'] %>" alt="">
+  </article>
 <% end %>
-
-
