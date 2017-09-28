@@ -52,3 +52,13 @@ delete '/dishes/:id' do
   @dish.destroy
   redirect "/dishes"
 end
+
+#========================
+
+get '/login' do
+  erb :login
+end
+
+post '/session' do
+  'creating session'
+end
