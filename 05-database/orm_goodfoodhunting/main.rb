@@ -7,8 +7,26 @@ require_relative 'db_config'
 require_relative 'models/dish'
 require_relative 'models/user'
 
+enable :sessions # sinatra provides this feature
+
+helpers do
+
+  def current_user
+    User.find_by(id: session[:user_id])
+  end
+
+  def logged_in?
+    if current_user
+      return true
+    else
+      return false
+    end
+  end
+
+end
+
 get '/' do
-  redirect '/dishes'
+  erb :index
 end
 
 get '/dishes' do
@@ -48,6 +66,8 @@ put '/dishes/:id' do
 end
 
 delete '/dishes/:id' do
+  redirect '/login' unless logged_in?
+
   @dish = Dish.find(params[:id])
   @dish.destroy
   redirect "/dishes"
@@ -56,9 +76,26 @@ end
 #========================
 
 get '/login' do
+  @message = ''
   erb :login
 end
 
 post '/session' do
-  'creating session'
+  # find the user
+  user = User.find_by(email: params[:email])
+
+  # if found a user
+  if user && user.authenticate(params[:password])
+    # sucessful create session then redirect
+    session[:user_id] = user.id
+    redirect '/dishes' 
+  else
+    @message = 'incorrect email or password'
+    erb :login
+  end
+end
+
+delete '/session' do
+  session[:user_id] = nil
+  redirect '/login'
 end

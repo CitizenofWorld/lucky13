@@ -1,11 +1,12 @@
 <h1>login</h1>
 
+<%= @message %>
 <form action="/session" method="post">
   <label for="">email</label>
-  <input type="text">
+  <input name="email" type="text">
 
   <label for="">password</label>
-  <input type="text">
+  <input name="password" type="password">
 
   <button>login</button>
 </form>
