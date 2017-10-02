@@ -6,6 +6,7 @@ require 'pry'
 require_relative 'db_config'
 require_relative 'models/dish'
 require_relative 'models/user'
+require_relative 'models/comment'
 
 enable :sessions # sinatra provides this feature
 
@@ -49,6 +50,7 @@ end
 # url: localhost:4567/dishes/3
 get '/dishes/:id' do
   @dish = Dish.find(params[:id])
+  @comments = Comment.where(dish_id: params[:id])
   erb :show
 end
 
@@ -98,4 +100,15 @@ end
 delete '/session' do
   session[:user_id] = nil
   redirect '/login'
+end
+
+post '/comments' do 
+  redirect '/login' unless logged_in?
+  
+  comment = Comment.new
+  comment.body = params[:body]
+  comment.dish_id = params[:dish_id]
+  comment.user_id = current_user.id
+  comment.save 
+  redirect "/dishes/#{params[:dish_id]}"
 end
