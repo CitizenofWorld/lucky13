@@ -3,6 +3,18 @@ class TipsController < ApplicationController
   def new
   end
 
+  def edit
+    @tip = Tip.find(params[:id])
+  end
+
+  def update
+    tip = Tip.find(params[:id])
+    tip.title = params[:title]
+    tip.content = params[:content]
+    tip.save
+    redirect_to "/tips/#{tip.id}"
+  end
+
   def create
     tip = Tip.new
     tip.title = params[:title]

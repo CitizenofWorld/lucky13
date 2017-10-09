@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   get '/tips/:id', to: 'tips#show'
   get '/tips', to: 'tips#index'
   post '/tips', to: 'tips#create'
+  get '/tips/:id/edit', to: 'tips#edit'
+  put '/tips/:id', to: 'tips#update'
 
                   # controller # action / method 
                   # pages_controller.rb # def about
