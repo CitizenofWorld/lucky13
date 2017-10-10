@@ -2,5 +2,21 @@
 
 <h1><%= @tip.title %></h1>
 
-
 <%= raw @content_html %>
+
+
+  
+
+<%= form_tag '/comments', method: 'post' do %>
+  <input type="hidden" name="tip_id" value="<%= @tip.id %>">
+  <label for="">comment</label>
+  <textarea name="content"></textarea>
+  <button>post comment</button>
+<% end %>
+
+<% @comments.each do |comment| %>
+
+  <p><%= comment.content %></p>
+
+<% end%>
+

@@ -27,6 +27,7 @@ class TipsController < ApplicationController
     @tip = Tip.find(params[:id])
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
     @content_html = markdown.render(@tip.content)
+    @comments = @tip.comments
   end
 
   def index

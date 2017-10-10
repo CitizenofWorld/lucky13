@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   # resources :tips
   get '/tips/new', to: 'tips#new'
   get '/tips/:id', to: 'tips#show'
