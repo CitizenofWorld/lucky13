@@ -1,0 +1,18 @@
+
+
+.pull-right {
+  float: right;
+}
+
+.content {
+  padding: 1em;
+}
+
+.ui-card {
+  width: 300px;
+  background-color: mistyrose;
+}
+
+.avatar {
+  width: 2em;
+}
