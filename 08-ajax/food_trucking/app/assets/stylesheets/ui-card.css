@@ -9,10 +9,28 @@
 }
 
 .ui-card {
-  width: 300px;
+  width: 50%;
   background-color: mistyrose;
+  border-radius: 5px;
+}
+
+.ui-card header {
+  line-height: 2em;
+}
+
+.ui-card .image-wrapper {
+  position: relative;
+}
+
+.ui-card .star {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  font-size: 2em;
 }
 
 .avatar {
+  vertical-align: middle;
   width: 2em;
+  border-radius: 50%;
 }
