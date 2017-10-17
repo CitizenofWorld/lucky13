@@ -1,4 +1,8 @@
-
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 
 .pull-right {
   float: right;
@@ -9,7 +13,7 @@
 }
 
 .ui-card {
-  width: 50%;
+  width: 48%;
   background-color: mistyrose;
   border-radius: 5px;
 }
@@ -23,10 +27,23 @@
 }
 
 .ui-card .star {
+  user-select: none;
+  -webkit-user-select: none;
   position: absolute;
   top: 0.5em;
   right: 0.5em;
   font-size: 2em;
+  opacity: 0;
+  cursor: pointer;
+  transition: .4s;
+}
+
+.ui-card .star:hover {
+  color: yellow;
+}
+
+.ui-card .image-wrapper:hover .star {
+  opacity: 1;
 }
 
 .avatar {
