@@ -1837,3 +1837,305 @@ Can't verify CSRF token authenticity.
 Completed 200 OK in 85ms (Views: 2.1ms | ActiveRecord: 17.5ms)
 
 
+Started POST "/api/comments" for 127.0.0.1 at 2017-10-18 15:15:27 +1100
+Processing by Api::CommentsController#create as */*
+  Parameters: {"dish_id"=>"1", "body"=>"lalalalala"}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Load (0.6ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.7ms)[0m  [1m[32mINSERT INTO "comments" ("body", "dish_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "lalalalala"], ["dish_id", 1], ["created_at", "2017-10-18 04:15:27.610558"], ["updated_at", "2017-10-18 04:15:27.610558"]]
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 25ms (Views: 1.3ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/dishes/1" for 127.0.0.1 at 2017-10-18 15:17:36 +1100
+Processing by DishesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDish Load (0.6ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering dishes/show.html.erb within layouts/application
+  [1m[36mComment Load (1.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."dish_id" = $1[0m  [["dish_id", 1]]
+  Rendered dishes/show.html.erb within layouts/application (15.4ms)
+Completed 200 OK in 139ms (Views: 127.1ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/api/comments" for 127.0.0.1 at 2017-10-18 15:18:30 +1100
+Processing by Api::CommentsController#create as */*
+  Parameters: {"dish_id"=>"1", "body"=>"dadadada"}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Load (0.5ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (2.9ms)[0m  [1m[32mINSERT INTO "comments" ("body", "dish_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "dadadada"], ["dish_id", 1], ["created_at", "2017-10-18 04:18:30.926069"], ["updated_at", "2017-10-18 04:18:30.926069"]]
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 27ms (Views: 2.5ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/dishes/1" for 127.0.0.1 at 2017-10-18 15:18:38 +1100
+Processing by DishesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDish Load (1.1ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering dishes/show.html.erb within layouts/application
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."dish_id" = $1[0m  [["dish_id", 1]]
+  Rendered dishes/show.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 130ms (Views: 117.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/dishes/1" for 127.0.0.1 at 2017-10-18 15:24:06 +1100
+Processing by DishesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDish Load (0.7ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering dishes/show.html.erb within layouts/application
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."dish_id" = $1[0m  [["dish_id", 1]]
+  Rendered dishes/show.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 141ms (Views: 128.6ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/api/comments" for 127.0.0.1 at 2017-10-18 15:24:12 +1100
+Processing by Api::CommentsController#create as */*
+  Parameters: {"dish_id"=>"1", "body"=>"hahahahaha"}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Load (0.5ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (2.3ms)[0m  [1m[32mINSERT INTO "comments" ("body", "dish_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "hahahahaha"], ["dish_id", 1], ["created_at", "2017-10-18 04:24:12.800449"], ["updated_at", "2017-10-18 04:24:12.800449"]]
+  [1m[35m (3.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 23ms (Views: 1.8ms | ActiveRecord: 6.6ms)
+
+
+Started GET "/dishes/1" for 127.0.0.1 at 2017-10-18 15:31:30 +1100
+Processing by DishesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDish Load (0.6ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering dishes/show.html.erb within layouts/application
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."dish_id" = $1[0m  [["dish_id", 1]]
+  Rendered dishes/show.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 153ms (Views: 143.0ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/api/comments" for 127.0.0.1 at 2017-10-18 15:31:34 +1100
+Processing by Api::CommentsController#create as */*
+  Parameters: {"dish_id"=>"1", "body"=>"xxxx"}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Load (1.3ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "comments" ("body", "dish_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "xxxx"], ["dish_id", 1], ["created_at", "2017-10-18 04:31:34.796257"], ["updated_at", "2017-10-18 04:31:34.796257"]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 30ms (Views: 1.7ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/dishes/1" for 127.0.0.1 at 2017-10-18 15:31:48 +1100
+Processing by DishesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDish Load (0.7ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering dishes/show.html.erb within layouts/application
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."dish_id" = $1[0m  [["dish_id", 1]]
+  Rendered dishes/show.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 168ms (Views: 156.6ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/api/comments" for 127.0.0.1 at 2017-10-18 15:31:53 +1100
+Processing by Api::CommentsController#create as */*
+  Parameters: {"dish_id"=>"1", "body"=>"salfksdlfksdjf"}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Load (1.2ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.8ms)[0m  [1m[32mINSERT INTO "comments" ("body", "dish_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "salfksdlfksdjf"], ["dish_id", 1], ["created_at", "2017-10-18 04:31:53.383930"], ["updated_at", "2017-10-18 04:31:53.383930"]]
+  [1m[35m (3.8ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 27ms (Views: 2.5ms | ActiveRecord: 7.1ms)
+
+
+Started GET "/dishes/1" for 127.0.0.1 at 2017-10-18 15:32:03 +1100
+Processing by DishesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDish Load (1.8ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering dishes/show.html.erb within layouts/application
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."dish_id" = $1[0m  [["dish_id", 1]]
+  Rendered dishes/show.html.erb within layouts/application (38.8ms)
+Completed 200 OK in 177ms (Views: 163.0ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/api/comments" for 127.0.0.1 at 2017-10-18 15:32:08 +1100
+Processing by Api::CommentsController#create as */*
+  Parameters: {"dish_id"=>"1", "body"=>"23842793482498"}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Load (0.7ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (2.2ms)[0m  [1m[32mINSERT INTO "comments" ("body", "dish_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "23842793482498"], ["dish_id", 1], ["created_at", "2017-10-18 04:32:08.496083"], ["updated_at", "2017-10-18 04:32:08.496083"]]
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 26ms (Views: 1.8ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/dishes/1" for 127.0.0.1 at 2017-10-18 15:33:42 +1100
+Processing by DishesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDish Load (1.1ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering dishes/show.html.erb within layouts/application
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."dish_id" = $1[0m  [["dish_id", 1]]
+  Rendered dishes/show.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 150ms (Views: 136.5ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/api/comments" for 127.0.0.1 at 2017-10-18 15:33:47 +1100
+Processing by Api::CommentsController#create as */*
+  Parameters: {"dish_id"=>"1", "body"=>"34093503948"}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Load (1.0ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "comments" ("body", "dish_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "34093503948"], ["dish_id", 1], ["created_at", "2017-10-18 04:33:47.492918"], ["updated_at", "2017-10-18 04:33:47.492918"]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 27ms (Views: 1.8ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/dishes/1" for 127.0.0.1 at 2017-10-18 15:35:26 +1100
+Processing by DishesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDish Load (0.5ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering dishes/show.html.erb within layouts/application
+  [1m[36mComment Load (1.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."dish_id" = $1[0m  [["dish_id", 1]]
+  Rendered dishes/show.html.erb within layouts/application (14.8ms)
+Completed 200 OK in 132ms (Views: 123.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/dishes/1" for 127.0.0.1 at 2017-10-18 15:35:41 +1100
+Processing by DishesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDish Load (0.9ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering dishes/show.html.erb within layouts/application
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."dish_id" = $1[0m  [["dish_id", 1]]
+  Rendered dishes/show.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 164ms (Views: 128.8ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/api/comments" for 127.0.0.1 at 2017-10-18 15:35:47 +1100
+Processing by Api::CommentsController#create as */*
+  Parameters: {"dish_id"=>"1", "body"=>"wrweurywirwy"}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Load (0.9ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (2.1ms)[0m  [1m[32mINSERT INTO "comments" ("body", "dish_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "wrweurywirwy"], ["dish_id", 1], ["created_at", "2017-10-18 04:35:47.444399"], ["updated_at", "2017-10-18 04:35:47.444399"]]
+  [1m[35m (5.9ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 30ms (Views: 1.6ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/dishes/1" for 127.0.0.1 at 2017-10-18 15:38:36 +1100
+Processing by DishesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDish Load (0.9ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering dishes/show.html.erb within layouts/application
+  [1m[36mComment Load (1.2ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."dish_id" = $1[0m  [["dish_id", 1]]
+  Rendered dishes/show.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 130ms (Views: 118.4ms | ActiveRecord: 2.1ms)
+
+
+  [1m[36mComment Load (1.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.1ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 1]]
+  [1m[35m (3.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 2]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 3]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 4]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 5]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 6]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 7]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 8]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[31mDELETE FROM "comments" WHERE "comments"."id" = $1[0m  [["id", 9]]
+  [1m[35m (1.2ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/dishes/1" for 127.0.0.1 at 2017-10-18 15:39:23 +1100
+Processing by DishesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDish Load (0.5ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering dishes/show.html.erb within layouts/application
+  [1m[36mComment Load (1.0ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."dish_id" = $1[0m  [["dish_id", 1]]
+  Rendered dishes/show.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 117ms (Views: 109.4ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/api/comments" for 127.0.0.1 at 2017-10-18 15:39:40 +1100
+Processing by Api::CommentsController#create as */*
+  Parameters: {"dish_id"=>"1", "body"=>"abc"}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Load (1.1ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.9ms)[0m  [1m[32mINSERT INTO "comments" ("body", "dish_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "abc"], ["dish_id", 1], ["created_at", "2017-10-18 04:39:40.043628"], ["updated_at", "2017-10-18 04:39:40.043628"]]
+  [1m[35m (4.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 58ms (Views: 1.7ms | ActiveRecord: 8.0ms)
+
+
+Started POST "/api/comments" for 127.0.0.1 at 2017-10-18 15:39:43 +1100
+Processing by Api::CommentsController#create as */*
+  Parameters: {"dish_id"=>"1", "body"=>"efg"}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Load (0.8ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (2.3ms)[0m  [1m[32mINSERT INTO "comments" ("body", "dish_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "efg"], ["dish_id", 1], ["created_at", "2017-10-18 04:39:43.696242"], ["updated_at", "2017-10-18 04:39:43.696242"]]
+  [1m[35m (6.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 29ms (Views: 1.7ms | ActiveRecord: 10.1ms)
+
+
+Started POST "/api/comments" for 127.0.0.1 at 2017-10-18 15:39:47 +1100
+Processing by Api::CommentsController#create as */*
+  Parameters: {"dish_id"=>"1", "body"=>"hahahahaha"}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Load (3.0ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.6ms)[0m  [1m[32mINSERT INTO "comments" ("body", "dish_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "hahahahaha"], ["dish_id", 1], ["created_at", "2017-10-18 04:39:47.761650"], ["updated_at", "2017-10-18 04:39:47.761650"]]
+  [1m[35m (7.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 34ms (Views: 1.1ms | ActiveRecord: 12.6ms)
+
+
+Started POST "/api/comments" for 127.0.0.1 at 2017-10-18 15:44:47 +1100
+Processing by Api::CommentsController#create as */*
+  Parameters: {"dish_id"=>"1", "body"=>"heellloooooooo"}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Load (1.0ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.4ms)[0m  [1m[32mINSERT INTO "comments" ("body", "dish_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "heellloooooooo"], ["dish_id", 1], ["created_at", "2017-10-18 04:44:47.893304"], ["updated_at", "2017-10-18 04:44:47.893304"]]
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 30ms (Views: 2.7ms | ActiveRecord: 6.8ms)
+
+
+Started POST "/api/comments" for 127.0.0.1 at 2017-10-18 15:45:14 +1100
+Processing by Api::CommentsController#create as */*
+  Parameters: {"dish_id"=>"1", "body"=>"first try"}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Load (0.4ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "comments" ("body", "dish_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "first try"], ["dish_id", 1], ["created_at", "2017-10-18 04:45:18.869593"], ["updated_at", "2017-10-18 04:45:18.869593"]]
+  [1m[35m (5.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 4095ms (Views: 1.3ms | ActiveRecord: 23.2ms)
+
+
+Started GET "/dishes/1" for 127.0.0.1 at 2017-10-18 15:48:25 +1100
+Processing by DishesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDish Load (1.0ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering dishes/show.html.erb within layouts/application
+  [1m[36mComment Load (1.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."dish_id" = $1[0m  [["dish_id", 1]]
+  Rendered dishes/show.html.erb within layouts/application (22.5ms)
+Completed 200 OK in 173ms (Views: 157.8ms | ActiveRecord: 2.0ms)
+
+
+Started POST "/api/comments" for 127.0.0.1 at 2017-10-18 15:48:32 +1100
+Processing by Api::CommentsController#create as */*
+  Parameters: {"dish_id"=>"1", "body"=>"lasf;alkfjasdlfj"}
+Can't verify CSRF token authenticity.
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mDish Load (0.5ms)[0m  [1m[34mSELECT  "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (1.0ms)[0m  [1m[32mINSERT INTO "comments" ("body", "dish_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["body", "lasf;alkfjasdlfj"], ["dish_id", 1], ["created_at", "2017-10-18 04:48:36.972135"], ["updated_at", "2017-10-18 04:48:36.972135"]]
+  [1m[35m (4.0ms)[0m  [1m[35mCOMMIT[0m
+Completed 200 OK in 4022ms (Views: 1.3ms | ActiveRecord: 6.0ms)
+
+

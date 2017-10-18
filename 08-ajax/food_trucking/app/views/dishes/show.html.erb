@@ -1,5 +1,17 @@
 <h1><%= @dish.name %></h1>
 
+<div class="status">
+</div>
+
+<div class="comments">
+<% @dish.comments.each do |comment| %>
+  <article>
+    <p><%= comment.body %></p>
+    <hr>
+  </article>
+<% end %>
+</div>
+
 <form action="/comments" method="post">
 <label for="">comment</label>
 <textarea name=""></textarea>
@@ -8,6 +20,7 @@
 
 <script>
 $('#new-comment-btn').on('click', function(event) {
+
   event.preventDefault();
 
   var options = {
@@ -20,11 +33,20 @@ $('#new-comment-btn').on('click', function(event) {
   }
 
   var appendComment = function(response) {
-    console.log(response);
+    var $article = $('<article>');
+    var $p = $('<p>').text(response.body);
+    var $hr = $('<hr>');
+
+    $article.append( $p );
+    $article.append( $hr );
+
+    $('.comments').append( $article )
   }
 
   $.ajax(options)
     .done(appendComment);
+
+  console.log('still here')
 
 });
 
