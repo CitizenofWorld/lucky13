@@ -24,10 +24,10 @@
 </div>
 
 <script>
-  
+  var token = $('meta[name="csrf-token"]').attr('content');
 
   $('.star').on('click', function(event) {
-
+    
     var dish_id = $(event.target)
       .closest('.ui-card')
       .data('dish-id');
@@ -35,6 +35,9 @@
     $.ajax({
       url: '/api/likes',
       method: 'post',
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader('X-CSRF-Token', token)
+      },
       data: { dish_id: dish_id }
     }).done(function(resp) {
       // on done function update likes count in dom

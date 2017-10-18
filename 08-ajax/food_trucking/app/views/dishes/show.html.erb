@@ -1,0 +1,33 @@
+<h1><%= @dish.name %></h1>
+
+<form action="/comments" method="post">
+<label for="">comment</label>
+<textarea name=""></textarea>
+<button id="new-comment-btn">post</button>
+</form>
+
+<script>
+$('#new-comment-btn').on('click', function(event) {
+  event.preventDefault();
+
+  var options = {
+    url: '/api/comments',
+    method: 'post',
+    data: { 
+      dish_id: <%= @dish.id %>, 
+      body: $('textarea').val()
+    }
+  }
+
+  var appendComment = function(response) {
+    console.log(response);
+  }
+
+  $.ajax(options)
+    .done(appendComment);
+
+});
+
+
+</script>
+
